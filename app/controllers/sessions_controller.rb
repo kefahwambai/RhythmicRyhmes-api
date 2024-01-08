@@ -6,15 +6,17 @@ class SessionsController < ApplicationController
   
       if user&.authenticate(params[:password])
         session[:user_id] = user.id
-        render json: :success
+        render json: user
       else
         render json: { errors: ['Invalid username or password'] }, status: :unprocessable_entity
       end
     end
   
     def destroy
+      user = current_user
+      puts "Current User: #{user.inspect}"
       session[:user_id] = nil
-      render json: :success
+      render json: user
     end
 end
   

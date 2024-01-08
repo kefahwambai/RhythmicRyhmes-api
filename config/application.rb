@@ -24,7 +24,7 @@ module Bl0gapi
     config.load_defaults 7.0
 
     config.middleware.use ActionDispatch::Cookies
-    config.middleware.use ActionDispatch::Session::CookieStore
+    config.middleware.use ActionDispatch::Session::CookieStore, key: 'blogsession', expire_after: 30.minutes
     config.action_controller.forgery_protection_origin_check = true
 
     config.api_only = true
