@@ -23,9 +23,11 @@ module Bl0gapi
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
-    config.middleware.use ActionDispatch::Cookies
-    config.middleware.use ActionDispatch::Session::CookieStore, key: 'blogsession', expire_after: 30.minutes
-    config.action_controller.forgery_protection_origin_check = true
+    # config.middleware.use ActionDispatch::Cookies
+    # config.middleware.use ActionDispatch::Session::CookieStore, key: 'blogsession', expire_after: 10.minutes
+    # config.action_controller.forgery_protection_origin_check = true
+    # config.action_dispatch.cookies_same_site_protection = :none
+
 
     config.api_only = true
   end
